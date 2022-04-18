@@ -2,19 +2,17 @@
 <div>
     <div class="fundo">
    <p class="barra">Nome da empresa</p>
-  <div class="msg-container-envia">
-    <img src="assets/u.png">
-    <p class="msg-envia">msg test</p>
-    <br>
-    <p class="msg-envia">msg test2</p>
+  <div class="msg-container-envia" >
+    <p v-for="mensagen in mensagenenvia">{{ mensagen.msg  }}</p>
+        
   </div>
-   <div class="msg-container-recebe">
-    <img src="assets/t.png">
-    <p class="msg-recebe">msg test</p>
+   <div class="msg-container-recebe"  v-for="mensagen in mensagenrecebe">
+ 
+      {{ mensagen.msg }}
   </div>
    <form>
      <input type="text">
-     <button type="submit">Enviar</button>
+     <button @click.prevent="enviar" type="submit">Enviar</button>
    </form>
   </div>
 </div>
@@ -47,5 +45,29 @@
   
   background-color: blue;
  
-}
+};
 </style>
+<script>
+export default {
+data(){return{
+  mensagenenvia:[
+     { msg:'test5'},
+      { msg:'test6'},
+      { msg:'test7'},
+      { msg:'test8'},
+      { msg:'test9'},
+  ],
+
+
+  mensagenrecebe:[
+     { msg:'test0'},
+      { msg:'test1'},
+      { msg:'test2'},
+      { msg:'test3'},
+      { msg:'test4'},
+  ],
+ }
+}
+}
+
+</script>
